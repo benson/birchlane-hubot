@@ -40,7 +40,7 @@ module.exports = (robot) ->
      else
          msg.send "@#{user} has no karma"
 
-  robot.hear /// #{botname} \s+ leaderboard ///i, (msg) ->
+  robot.hear / karma.*leaderboard /i, (msg) ->
      users = robot.brain.data._private
      tuples = []
      for username, score of users
