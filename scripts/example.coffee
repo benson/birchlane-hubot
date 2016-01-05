@@ -64,9 +64,9 @@ module.exports = (robot) ->
         username = tuples[i][0]
         points = tuples[i][1]
         point_label = if points == 1 then "point" else "points"
-        leader = if i == 0 then "All hail supreme leader!" else ""
+        # leader = if i == 0 then "Wooo" else ""
         newline = if i < Math.min(limit, tuples.length) - 1 then '\n' else ''
-        str += "##{i+1} @#{username} [#{points} " + point_label + "] " + leader + newline
+        str += "##{i+1} #{username}: #{points} " + point_label + newline
      msg.send(str)
 
   robot.hear /robot/i, (res) ->
