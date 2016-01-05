@@ -74,15 +74,6 @@ module.exports = (robot) ->
   robot.hear /robot/i, (res) ->
     res.send "yeah, i'm a robot, so what?"
 
-  robot.hear /(.+)\+\+/i, (res) ->
-    user = res.match[1]
-    karma = robot.brain.karma[]
-    if karma
-      robot.brain.karma[user] = karma + 1
-    else
-      robot.brain.karma[user] = 1
-
-    res.send "#{user} has #{karma+1} karma!"
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
   #
