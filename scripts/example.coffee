@@ -62,6 +62,14 @@ module.exports = (robot) ->
   robot.hear /robot/i, (res) ->
     res.send "yeah, i'm a robot, so what?"
 
+  robot.respond /api shit/i, (res) ->
+    robot.http("http://mockbin.org/bin/ab892022-cfb2-4a12-8f14-1ea485439f86")
+        .get() (err, res, body) ->
+          if err
+            res.send "oh shit dat error"
+          else
+            res.send "Got back #{body}"
+
   # robot.hear /badger/i, (res) ->
   #   res.send "Badgers? BADGERS? WE DON'T NEED NO STINKIN BADGERS"
   #
